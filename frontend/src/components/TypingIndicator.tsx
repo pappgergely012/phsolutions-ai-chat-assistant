@@ -10,7 +10,7 @@ const TypingIndicator = ({ status }: Props) => (
         <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:150ms]" />
         <span className="w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce [animation-delay:300ms]" />
       </div>
-      {status && <span className="text-xs text-stone-400">{status}</span>}
+      {status && <span className="text-sm text-stone-400">{status}</span>}
     </div>
   </div>
 )
