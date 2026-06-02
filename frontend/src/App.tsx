@@ -192,7 +192,7 @@ const App = () => {
               onKeyDown={handleKeyDown}
               placeholder={SUGGESTIONS[placeholderIndex]}
               disabled={isLoading}
-              className="flex-1 px-3 py-2.5 text-base rounded-lg text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-stone-300 bg-white"
+              className="flex-1 px-3 py-2.5 text-[16px] rounded-lg text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-stone-300 bg-white"
             />
             <button
               onClick={handleSubmit}
