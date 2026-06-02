@@ -1,0 +1,83 @@
+PH Solutions - Technology Stack
+
+Frontend:
+- React (component-based UI development)
+- Redux (state management)
+- Tailwind CSS (utility-first styling)
+- React Router (client-side routing)
+- i18n (internationalization and multilingual support)
+- Motion / Framer Motion (animations)
+
+Backend & APIs:
+- Node.js
+- Python (backend services, AI/ML pipelines, automation, scripting)
+- REST API development
+- GraphQL API development
+
+Databases:
+- PostgreSQL (relational database, hosted in Frankfurt, Germany via Neon)
+- MongoDB (NoSQL database)
+
+Cloud & Infrastructure:
+- AWS (Amazon Web Services)
+- Azure (Microsoft)
+- GCP (Google Cloud Platform)
+- Vercel (frontend deployment)
+- Netlify (frontend deployment)
+
+E-commerce:
+- Shopify (custom themes, store setup)
+- Custom webshop solutions
+
+CMS:
+- Builder.io
+
+AI & Development Tools:
+- AI-assisted development tools for 5-10x faster delivery
+- LangGraph, AWS Bedrock, and other AI frameworks for AI product development
+
+Partners:
+Google, Microsoft, Meta, Amazon, Shopify, Vercel, Netlify
+
+---
+
+PH Solutions - Pricing Packages
+
+Free consultation is offered before any commitment.
+
+Package 1: Simple Website (Egyszerű Weboldal)
+Best for: Small businesses, individual entrepreneurs, landing pages
+Price range: 100,000 HUF – 350,000–400,000 HUF
+Includes:
+- 4-5 page website
+- Fast delivery (1-2 days)
+- Responsive design (mobile, tablet, desktop)
+- Custom, modern design
+- Domain name registration and integration
+- Contact form
+- Basic SEO setup
+
+Package 2: Complex System – CMS, Webshop or Custom Web App
+Best for: Growing companies, webshops, startups, complex requirements
+Price range: 400,000 HUF – 1,000,000 HUF
+Includes:
+- CMS integration (Builder.io) or custom webshop
+- Shopify setup and custom theme development
+- Custom web application development
+- Custom REST API or GraphQL API
+- Custom database (PostgreSQL, MongoDB)
+- Background processes and cron jobs
+- Scalable cloud architecture (AWS, Azure, GCP)
+- Comprehensive SEO optimization
+
+Package 3: Enterprise / Long-term Partnership
+Best for: Large-scale systems, ongoing development, enterprise clients
+Price: Custom pricing — we cannot provide a price range for this tier as it typically requires a longer collaboration and a detailed scoping process. We provide individual quotes based on the project's needs.
+
+Additional Services (add-on):
+- Website maintenance plans
+- Hosting services (99.9% uptime, SSL, backups)
+- Shopify webshop development
+- AI chatbot and assistant integration
+
+Note: All prices are indicative. Final pricing depends on the specific requirements, complexity, and timeline of the project. We always recommend a free consultation before any commitment.

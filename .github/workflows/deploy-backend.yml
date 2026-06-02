@@ -1,0 +1,29 @@
+name: Deploy Backend (EC2)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'data/sample_docs/**'
+      - 'requirements.txt'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/langgraph-bedrock-demo
+            git pull origin main
+            venv/bin/pip install -r requirements.txt --quiet
+            sudo systemctl restart phsolutions-api
+            echo "Deploy complete"

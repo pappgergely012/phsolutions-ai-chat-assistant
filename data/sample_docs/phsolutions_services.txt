@@ -1,0 +1,54 @@
+PH Solutions - Services
+
+1. Web Development
+Modern, responsive websites and full-stack web applications that work perfectly on all devices. PH Solutions builds from simple landing pages to complex scalable web applications.
+
+2. Web Design & UI/UX
+Custom, attractive design solutions that reflect the client's business identity. Services include UI/UX design, prototypes, wireframes, and complete design systems delivered in record time.
+
+3. AI Solutions (AI Heavy)
+PH Solutions specializes in AI-powered solutions:
+- AI Chatbot development: custom chatbots for customer support, lead generation, internal use
+- AI Assistant: intelligent assistants integrated into existing systems
+- AI Workflows: automated business processes powered by AI
+- AI-based rapid development: using AI tools to develop software 5-10x faster
+
+4. Custom Software Development
+Fully tailored software solutions using AI-supported rapid development:
+- Web, mobile, and desktop application development
+- Custom REST API and GraphQL API development
+- Custom database solutions (PostgreSQL, MongoDB)
+- Custom cron jobs and background processes
+- Scalable cloud architecture (AWS, Azure, GCP)
+
+5. E-commerce Solutions
+Complete webshop development and integration:
+- Custom webshop development
+- Shopify store setup, configuration, and custom theme development
+- Payment and shipping methods setup
+- Product and inventory management
+
+6. SEO Optimization
+Search engine optimization to rank websites in top positions on Google and other search engines.
+
+7. CMS Integration
+Easy-to-manage content management systems, including Builder.io integration, allowing clients to update their own content without developer help.
+
+8. Maintenance & Support
+Continuous maintenance, updates, and technical support:
+- Regular security updates
+- Content updates and modifications
+- Technical support
+- Domain name registration and management
+
+9. Hosting Services
+Reliable hosting with 99.9% availability, SSL certificates, security backups, and website analytics.
+
+10. Consulting Services
+- Technology consulting and strategic planning
+- Digital transformation consulting
+- Performance audit: analysis of system performance and scalability
+- Architecture design: scalable and maintainable system architectures
+- Innovation consulting: new technology implementation, Proof of Concept projects
+- Team development: technology training, agile methodologies
+- International project experience
