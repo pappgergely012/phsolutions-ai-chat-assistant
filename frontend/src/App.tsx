@@ -50,6 +50,18 @@ const App = () => {
   }, [isOpen])
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 640
+    if (isOpen && isMobile) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setPlaceholderIndex((prev) => (prev + 1) % SUGGESTIONS.length)
     }, 3000)
@@ -102,7 +114,7 @@ const App = () => {
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end gap-3">
       {isOpen && (
         <div
-          className="w-[calc(100vw-2rem)] sm:w-[390px] h-[calc(100svh-6rem)] sm:h-[560px] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-stone-200"
+          className="fixed inset-0 sm:static sm:inset-auto sm:w-[390px] sm:h-[560px] sm:rounded-2xl sm:shadow-2xl sm:border sm:border-stone-200 flex flex-col overflow-hidden"
           style={{ background: '#ffffff' }}
         >
           {/* Header */}
@@ -210,10 +222,10 @@ const App = () => {
         </div>
       )}
 
-      {/* Bubble button */}
+      {/* Bubble button — mobilon rejtett ha a modal nyitva van */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white transition-all duration-200 hover:scale-105 shrink-0"
+        className={`${isOpen ? 'hidden sm:flex' : 'flex'} w-14 h-14 rounded-full shadow-lg items-center justify-center text-white transition-all duration-200 hover:scale-105 shrink-0`}
         style={{ background: 'linear-gradient(135deg, #7c3aed, #3b82f6)' }}
       >
         {isOpen ? <CloseIcon /> : <ChatIcon />}
