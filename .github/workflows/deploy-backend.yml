@@ -22,6 +22,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
             cd /home/ec2-user/langgraph-bedrock-demo
             git pull origin main
             venv/bin/pip install -r requirements.txt --quiet
