@@ -44,9 +44,6 @@ jobs:
           aws s3 cp frontend/dist/chat-widget.js s3://phsolutions-chat-widget/chat-widget.js \
             --content-type "application/javascript" \
             --cache-control "max-age=3600"
-          aws s3 cp frontend/dist/assets/ s3://phsolutions-chat-widget/assets/ \
-            --recursive \
-            --cache-control "max-age=3600"
 
       - name: Invalidate CloudFront cache
         run: |
