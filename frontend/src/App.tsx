@@ -6,14 +6,56 @@ import type { Message } from "./types";
 
 const MOBILE_BREAKPOINT = 640;
 
-const SUGGESTIONS = [
-  "Milyen szolgáltatásokat kínáltok?",
-  "Milyen technológiákat használtok?",
-  "Mennyibe kerül egy weboldal?",
-  "Tudtok AI megoldásokat fejleszteni?",
-];
+type Lang = "hu" | "en";
 
-const INPUT_PLACEHOLDER = "Mennyibe kerül egy bemutatkozó weboldal?";
+interface Strings {
+  subtitle: string;
+  greeting: string;
+  greetingSubtitle: string;
+  placeholder: string;
+  poweredBy: string;
+  suggestions: string[];
+}
+
+const STRINGS: Record<Lang, Strings> = {
+  hu: {
+    subtitle: "AI Asszisztens",
+    greeting: "Szia! Miben segíthetek? 👋",
+    greetingSubtitle: "Kérdezz bátran magyarul vagy angolul!",
+    placeholder: "Mennyibe kerül egy bemutatkozó weboldal?",
+    poweredBy: "Powered by PH Solutions",
+    suggestions: [
+      "Milyen szolgáltatásokat kínáltok?",
+      "Milyen technológiákat használtok?",
+      "Mennyibe kerül egy weboldal?",
+      "Tudtok AI megoldásokat fejleszteni?",
+    ],
+  },
+  en: {
+    subtitle: "AI Assistant",
+    greeting: "Hi! How can I help you? 👋",
+    greetingSubtitle: "Feel free to ask in English or Hungarian!",
+    placeholder: "How much does a website cost?",
+    poweredBy: "Powered by PH Solutions",
+    suggestions: [
+      "What services do you offer?",
+      "What technologies do you use?",
+      "How much does a website cost?",
+      "Can you build AI solutions?",
+    ],
+  },
+};
+
+declare global {
+  interface Window {
+    PHChatConfig?: { lang?: string };
+  }
+}
+
+const getInitialLang = (): Lang => {
+  const configLang = window.PHChatConfig?.lang;
+  return configLang === "en" ? "en" : "hu";
+};
 
 const ChatIcon = () => (
   <svg
@@ -71,6 +113,7 @@ const App = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState("");
+  const [lang, setLang] = useState<Lang>(getInitialLang);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -80,6 +123,16 @@ const App = () => {
       setIsMobile(event.matches);
     mql.addEventListener("change", handleChange);
     return () => mql.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    const handleLangChange = (event: Event) => {
+      const customEvent = event as CustomEvent<{ lang: string }>;
+      setLang(customEvent.detail.lang === "en" ? "en" : "hu");
+    };
+    window.addEventListener("ph-chat-lang-change", handleLangChange);
+    return () =>
+      window.removeEventListener("ph-chat-lang-change", handleLangChange);
   }, []);
 
   useEffect(() => {
@@ -142,6 +195,7 @@ const App = () => {
   };
 
   const hasMessages = messages.length > 0;
+  const strings = STRINGS[lang];
 
   const chatPanel = (
     <div className="flex flex-col overflow-hidden h-full bg-white">
@@ -176,7 +230,7 @@ const App = () => {
             <p className="text-white text-base font-semibold leading-tight">
               PH Solutions
             </p>
-            <p className="text-white/60 text-sm">AI Assistant</p>
+            <p className="text-white/60 text-sm">{strings.subtitle}</p>
           </div>
         </div>
         <button
@@ -192,13 +246,11 @@ const App = () => {
         {!hasMessages && (
           <div className="flex flex-col items-center justify-center gap-3 h-full text-center">
             <p className="text-base font-medium text-stone-800">
-              Szia! Miben segíthetek? 👋
+              {strings.greeting}
             </p>
-            <p className="text-sm text-stone-400">
-              Kérdezz bátran magyarul vagy angolul!
-            </p>
+            <p className="text-sm text-stone-400">{strings.greetingSubtitle}</p>
             <div className="flex flex-col gap-2 w-full mt-1">
-              {SUGGESTIONS.map((suggestion) => (
+              {strings.suggestions.map((suggestion) => (
                 <button
                   key={suggestion}
                   onClick={() => setInput(suggestion)}
@@ -244,7 +296,7 @@ const App = () => {
           value={input}
           onChange={(event) => setInput(event.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder={INPUT_PLACEHOLDER}
+          placeholder={strings.placeholder}
           disabled={isLoading}
           className="flex-1 px-3 py-2.5 text-[16px] rounded-lg text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all border border-stone-300 bg-white"
         />
@@ -259,7 +311,7 @@ const App = () => {
       </div>
 
       <p className="text-center text-xs text-stone-300 py-1.5 border-t border-stone-100 bg-white shrink-0">
-        Powered by PH Solutions
+        {strings.poweredBy}
       </p>
     </div>
   );
